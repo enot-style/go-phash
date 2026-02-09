@@ -1,4 +1,4 @@
-module github.com/kotylevskiy/go-phash
+module github.com/enot-style/go-phash
 
 go 1.25.7
 

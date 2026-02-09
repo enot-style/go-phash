@@ -11,7 +11,7 @@ A small, dependency-light Go library and CLI for computing 64-bit perceptual has
 
 **Install**
 ```bash
-go get github.com/kotylevskiy/go-phash
+go get github.com/enot-style/go-phash
 ```
 
 **CLI Usage**
@@ -46,7 +46,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kotylevskiy/go-phash"
+	"github.com/enot-style/go-phash"
 )
 
 func main() {
