@@ -1,12 +1,13 @@
 # go-phash
 
-A small, dependency-light Go library and CLI for computing 64-bit perceptual hashes (pHash) of images. Useful for near-duplicate detection, similarity search, and basic image de-duplication workflows.
+A minimal-dependency pure-Go library and CLI for computing 64-bit perceptual hashes (pHash) of images. Useful for near-duplicate detection, similarity search, and basic image de-duplication workflows.
 
 **Highlights**
 - Classic 64-bit pHash pipeline (32x32 resize → grayscale → DCT → median threshold → 64-bit hash).
 - CLI that hashes a file/URL or compares two images with Hamming distance.
 - Robust decoding helpers with JPEG EXIF orientation handling.
-- Built-in WebP support (decode and lossless encode).
+- Built-in WebP decode support.
+- Pure-Go, minimal dependencies (no native/CGo requirements).
 - Simple image utilities (grayscale, resize, downscale).
 
 **Install**
@@ -76,9 +77,6 @@ Decoding helpers:
 - `DownloadAndDecodeAny(context.Context, string) (image.Image, string, error)` fetches over HTTP and decodes.
 - `DownloadAndDecodeAnyWithLimit(context.Context, string, int64) (image.Image, string, error)` with size cap.
 
-Encoding helper:
-- `EncodeWebPLossless(io.Writer, image.Image) error` encodes lossless WebP.
-
 Image utilities:
 - `Grayscale(image.Image) *image.Gray`
 - `Resize(image.Image, uint32, uint32) image.Image`
@@ -86,10 +84,7 @@ Image utilities:
 
 **Supported Image Formats**
 Decode (registered by default):
-- JPEG, PNG, GIF, WebP (via `golang.org/x/image/webp`).
-
-Encode:
-- WebP (lossless) via `EncodeWebPLossless`.
+- JPEG, PNG, GIF, BMP, WebP (via `golang.org/x/image/webp` and `golang.org/x/image/bmp`).
 
 **EXIF Orientation**
 When decoding JPEGs, EXIF orientation is applied automatically, so hashes are stable across rotated inputs.
