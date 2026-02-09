@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	phash "github.com/kotylevskiy/go-phash"
+	phash "github.com/enot-style/go-phash"
 )
 
 func main() {
