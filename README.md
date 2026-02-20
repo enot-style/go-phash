@@ -95,6 +95,17 @@ go test ./...
 ```
 
 **Notes**
-- `PHash(nil)` returns `0`.
+- As a practical rule of thumb, images with pHash Hamming distance `<= 6` can usually be considered **similar**.
 - Hashes are 64-bit values typically rendered as 16 hex characters with `%016x`.
 - The CLI accepts `http://` and `https://` URLs as inputs.
+- `PHash(nil)` returns `0`.
+
+
+> [!TIP]
+> **pHash** is mostly shape/structure-driven (grayscale), so images with the same content but different colors can still look "very similar" by hash.
+> 
+> Examples – very close images that are distinct only by color from `test_data`:
+> - `test_data/tblue.jpeg` vs `test_data/tgray.jpeg` -> Hamming distance `2`
+> - `test_data/kblue.webp` vs `test_data/kyellow.jpeg` -> Hamming distance `3`
+> 
+> If color matters, run `go-phash` first and add [go-colorsim](https://github.com/enot-style/go-colorsim) as a second-step color similarity check.
