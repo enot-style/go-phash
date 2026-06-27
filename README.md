@@ -1,5 +1,9 @@
 # go-phash
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/enot-style/go-phash.svg)](https://pkg.go.dev/github.com/enot-style/go-phash) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/enot-style/go-phash)](https://goreportcard.com/report/github.com/enot-style/go-phash)
+[![License](https://img.shields.io/github/license/enot-style/go-phash)](LICENSE)
+
 A minimal-dependency pure-Go library and CLI for computing 64-bit perceptual hashes (pHash) of images. Useful for near-duplicate detection, similarity search, and basic image de-duplication workflows.
 
 **Highlights**
